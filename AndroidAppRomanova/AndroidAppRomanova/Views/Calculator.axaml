@@ -1,91 +1,73 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:viewmodels="using:AndroidAppRomanova.ViewModels"
              xmlns:vm="using:AndroidAppRomanova.ViewModels"
              xmlns:views="using:AndroidAppRomanova.Views"
-             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="700"
              x:Class="AndroidAppRomanova.Views.Calculator"
              x:DataType="vm:CalculatorViewModel">
-    <Design.DataContext>
-        <vm:CalculatorViewModel />
-    </Design.DataContext>
-
-    <Grid>
-        <DockPanel>
-            <Menu DockPanel.Dock="Top">
-                <MenuItem Header="Меню действий">
-                    <MenuItem Header="Вычислить" Command="{Binding CalculateCommand}" />
-                    <MenuItem Header="Очистить" Command="{Binding ClearCommand}" />
-                </MenuItem>
-            </Menu>
-
-            <ScrollViewer>
-                <StackPanel Margin="16" Spacing="14" VerticalAlignment="Center">
-
-                    <TextBlock Text="Вычисление y = a + b + c"
-                               FontSize="20" FontWeight="SemiBold"
-                               HorizontalAlignment="Center" />
-
-                    <Border Padding="12" CornerRadius="8" Background="#18808080">
-                        <StackPanel Spacing="2" HorizontalAlignment="Center">
-                            <TextBlock Text="a = sqrt^3(w − 20) / (1 − (v + b/13))"
-                                       FontFamily="Consolas, monospace" />
-                            <TextBlock Text="b = w / v,   c = 25"
-                                       FontFamily="Consolas, monospace" />
+    <Grid Background="{Binding PageBackground}">
+        <ScrollViewer>
+            <StackPanel Margin="16" Spacing="12">
+                <TextBlock Text="{Binding PageTitle}" FontSize="{Binding PageFontSize}"
+                           FontWeight="Bold" Foreground="{Binding PageForeground}"
+                           HorizontalAlignment="Center" TextWrapping="Wrap"/>
+                <Border Padding="12" CornerRadius="8" Background="#18808080">
+                    <StackPanel Spacing="3">
+                        <TextBlock Text="a = ∛(w − 20) / (1 − (v + b/13))"
+                                   Foreground="{Binding PageForeground}" FontFamily="Consolas"/>
+                        <TextBlock Text="b = w / v,    c = 25"
+                                   Foreground="{Binding PageForeground}" FontFamily="Consolas"/>
+                    </StackPanel>
+                </Border>
+                <Border Padding="14" CornerRadius="10" BorderThickness="1" BorderBrush="#66808080">
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="Входные данные" FontWeight="SemiBold" Foreground="{Binding PageForeground}"/>
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <StackPanel Spacing="4" Width="*" >
+                                <TextBlock Text="w" Foreground="{Binding PageForeground}"/>
+                                <TextBox Text="{Binding WText}" Watermark="Введите w"/>
+                            </StackPanel>
+                            <StackPanel Spacing="4" Width="*">
+                                <TextBlock Text="v" Foreground="{Binding PageForeground}"/>
+                                <TextBox Text="{Binding VText}" Watermark="Введите v"/>
+                            </StackPanel>
                         </StackPanel>
-                    </Border>
-
-                    <Border Padding="16" CornerRadius="12"
-                            BorderThickness="1" BorderBrush="#40808080">
-                        <StackPanel Spacing="12">
-                            <UniformGrid Columns="2">
-                                <StackPanel Spacing="4" Margin="0,0,6,0">
-                                    <TextBlock Text="w" FontWeight="SemiBold" />
-                                    <TextBox Text="{Binding WText}" Watermark="Введите w" />
-                                </StackPanel>
-                                <StackPanel Spacing="4" Margin="6,0,0,0">
-                                    <TextBlock Text="v" FontWeight="SemiBold" />
-                                    <TextBox Text="{Binding VText}" Watermark="Введите v" />
-                                </StackPanel>
-                            </UniformGrid>
-
-                            <UniformGrid Columns="2">
-                                <Button Content="Вычислить"
-                                        Classes="accent"
-                                        Command="{Binding CalculateCommand}"
-                                        Height="42" Margin="0,0,6,0"
-                                        HorizontalAlignment="Stretch"
-                                        HorizontalContentAlignment="Center" />
-                                <Button Content="Очистить"
-                                        Command="{Binding ClearCommand}"
-                                        Height="42" Margin="6,0,0,0"
-                                        HorizontalAlignment="Stretch"
-                                        HorizontalContentAlignment="Center" />
-                            </UniformGrid>
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <Button Content="Вычислить" Command="{Binding CalculateCommand}" Classes="accent" HorizontalAlignment="Stretch"/>
+                            <Button Content="Очистить" Command="{Binding ClearCommand}" HorizontalAlignment="Stretch"/>
+                            <Button Content="Настройки" Command="{Binding OpenSettingsCommand}" HorizontalAlignment="Stretch"/>
                         </StackPanel>
-                    </Border>
-
-                    <Border Padding="16" CornerRadius="12" Background="#18808080">
-                        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto"
-                              RowSpacing="8" ColumnSpacing="16">
-                            <TextBlock Grid.Row="0" Grid.Column="0" Text="a =" />
-                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding AResult}" />
-
-                            <TextBlock Grid.Row="1" Grid.Column="0" Text="b =" />
-                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding BResult}" />
-
-                            <TextBlock Grid.Row="2" Grid.Column="0" Text="y ="
-                                       FontWeight="Bold" FontSize="20" />
-                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding YResult}"
-                                       FontWeight="Bold" FontSize="20" />
-                        </Grid>
-                    </Border>
-                </StackPanel>
-            </ScrollViewer>
-        </DockPanel>
-
-        <views:NotifyOverlay />
+                    </StackPanel>
+                </Border>
+                <Border Padding="14" CornerRadius="10" Background="#18808080">
+                    <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="16" RowSpacing="8">
+                        <TextBlock Grid.Row="0" Text="a =" Foreground="{Binding PageForeground}"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding AResult}" Foreground="{Binding PageForeground}"/>
+                        <TextBlock Grid.Row="1" Text="b =" Foreground="{Binding PageForeground}"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding BResult}" Foreground="{Binding PageForeground}"/>
+                        <TextBlock Grid.Row="2" Text="y =" FontWeight="Bold" Foreground="{Binding PageForeground}"/>
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding YResult}" FontWeight="Bold" FontSize="20" Foreground="{Binding PageForeground}"/>
+                    </Grid>
+                </Border>
+                <Border IsVisible="{Binding IsSettingsOpen}" Padding="14" CornerRadius="10"
+                        BorderBrush="#66808080" BorderThickness="1">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Настройки внешнего вида" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock Text="Заголовок"/>
+                        <TextBox Text="{Binding DraftTitle}"/>
+                        <TextBlock Text="Цвет фона"/>
+                        <ComboBox ItemsSource="{Binding BackgroundOptions}" SelectedItem="{Binding SelectedBackground}"/>
+                        <TextBlock Text="Цвет текста"/>
+                        <ComboBox ItemsSource="{Binding ForegroundOptions}" SelectedItem="{Binding SelectedForeground}"/>
+                        <TextBlock Text="Размер шрифта (12–28)"/>
+                        <TextBox Text="{Binding DraftFontSize}"/>
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <Button Content="Применить" Command="{Binding ApplySettingsCommand}" Classes="accent"/>
+                            <Button Content="Отмена" Command="{Binding CloseSettingsCommand}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+        <views:NotifyOverlay/>
     </Grid>
 </UserControl>

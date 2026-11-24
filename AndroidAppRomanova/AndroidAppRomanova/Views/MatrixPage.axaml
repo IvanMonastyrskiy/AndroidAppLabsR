@@ -1,0 +1,53 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:AndroidAppRomanova.ViewModels"
+             xmlns:views="using:AndroidAppRomanova.Views"
+             x:Class="AndroidAppRomanova.Views.MatrixPage"
+             x:DataType="vm:MatrixViewModel">
+    <Grid>
+        <ScrollViewer>
+            <StackPanel x:Name="MainLayout" Orientation="Vertical" Margin="12" Spacing="10">
+                <Border Padding="12" CornerRadius="8" BorderBrush="#66808080" BorderThickness="1">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Матрица произвольного размера" FontSize="20" FontWeight="Bold"/>
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <StackPanel Spacing="3">
+                                <TextBlock Text="Строки"/>
+                                <TextBox Text="{Binding RowsText}" Width="80"/>
+                            </StackPanel>
+                            <StackPanel Spacing="3">
+                                <TextBlock Text="Столбцы"/>
+                                <TextBox Text="{Binding ColumnsText}" Width="80"/>
+                            </StackPanel>
+                            <Button Content="Создать" Command="{Binding CreateMatrixCommand}" VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <Button Content="Случайные числа" Command="{Binding FillRandomCommand}"/>
+                            <Button Content="Очистить" Command="{Binding ClearCommand}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Padding="10" CornerRadius="8" BorderBrush="#66808080" BorderThickness="1">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Элементы матрицы (целые числа)" FontWeight="SemiBold"/>
+                        <ItemsControl ItemsSource="{Binding Cells}" HorizontalAlignment="Center">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="{Binding Columns}"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="vm:CellViewModel">
+                                    <TextBox Text="{Binding Value}" Width="58" Margin="2" HorizontalContentAlignment="Center"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <Button Content="Выполнить вариант 20" Command="{Binding SwapRowsCommand}" Classes="accent"/>
+                        <TextBlock Text="{Binding ResultText}" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+        <views:NotifyOverlay/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,47 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:AndroidAppRomanova.ViewModels"
+             xmlns:views="using:AndroidAppRomanova.Views"
+             x:Class="AndroidAppRomanova.Views.Game"
+             x:DataType="vm:GameViewModel">
+    <Grid RowDefinitions="Auto,*">
+        <StackPanel Grid.Row="0" Margin="12" Spacing="8">
+            <TextBlock Text="Пятнашки" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                <TextBlock Text="Размер:" VerticalAlignment="Center"/>
+                <ComboBox Width="90" SelectedItem="{Binding BoardSize}">
+                    <ComboBoxItem Content="3"/>
+                    <ComboBoxItem Content="4"/>
+                    <ComboBoxItem Content="5"/>
+                </ComboBox>
+                <Button Content="Случайная" Command="{Binding CreateRandomCommand}"/>
+                <Button Content="Сбросить" Command="{Binding ClearCommand}"/>
+            </StackPanel>
+            <TextBlock Text="Своя расстановка: числа через пробел, 0 — пустая клетка." TextWrapping="Wrap"/>
+            <TextBox Text="{Binding CustomLayout}" AcceptsReturn="True" MinHeight="48"/>
+            <Button Content="Применить расстановку" Command="{Binding ApplyLayoutCommand}" HorizontalAlignment="Stretch"/>
+            <TextBlock Text="{Binding Moves, StringFormat='Количество ходов: {0}'}" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="12">
+                <TextBlock Text="Зелёный — доступный ход"/>
+                <TextBlock Text="Оранжевый — последний ход"/>
+            </StackPanel>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding Tiles}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="{Binding Columns}" Rows="{Binding BoardSize}"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="vm:TileViewModel">
+                        <Button Command="{Binding PressCommand}" Background="{Binding Background}"
+                                Foreground="{Binding Foreground}" Margin="3" MinWidth="48" MinHeight="48"
+                                FontSize="22" FontWeight="Bold" Content="{Binding Text}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <views:NotifyOverlay/>
+    </Grid>
+</UserControl>
