@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "8wEzIt3BxTE=",
+  "success": true,
+  "projectFilePath": "D:\\AndroidAppRomanova\\AndroidAppRomanova\\AndroidAppRomanova\\AndroidAppRomanova.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\monas\\.nuget\\packages\\avalonia\\12.1.2\\avalonia.12.1.2.nupkg.sha512",
+    "C:\\Users\\monas\\.nuget\\packages\\avalonia.buildservices\\11.3.2\\avalonia.buildservices.11.3.2.nupkg.sha512",
+    "C:\\Users\\monas\\.nuget\\packages\\avalonia.fonts.inter\\12.1.2\\avalonia.fonts.inter.12.1.2.nupkg.sha512",
+    "C:\\Users\\monas\\.nuget\\packages\\avalonia.remote.protocol\\12.1.2\\avalonia.remote.protocol.12.1.2.nupkg.sha512",
+    "C:\\Users\\monas\\.nuget\\packages\\avalonia.themes.fluent\\12.1.2\\avalonia.themes.fluent.12.1.2.nupkg.sha512",
+    "C:\\Users\\monas\\.nuget\\packages\\avaloniaui.diagnosticssupport\\2.2.3\\avaloniaui.diagnosticssupport.2.2.3.nupkg.sha512",
+    "C:\\Users\\monas\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.2\\communitytoolkit.mvvm.8.4.2.nupkg.sha512",
+    "C:\\Users\\monas\\.nuget\\packages\\microcom.runtime\\0.11.6\\microcom.runtime.0.11.6.nupkg.sha512",
+    "C:\\Users\\monas\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\monas\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\monas\\.nuget\\packages\\microsoft.io.recyclablememorystream\\3.0.1\\microsoft.io.recyclablememorystream.3.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

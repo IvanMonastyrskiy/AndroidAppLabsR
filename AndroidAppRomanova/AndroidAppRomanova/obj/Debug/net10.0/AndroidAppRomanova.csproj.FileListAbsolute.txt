@@ -1,0 +1,15 @@
+D:\AndroidAppRomanova\AndroidAppRomanova\AndroidAppRomanova\bin\Debug\net10.0\AndroidAppRomanova.deps.json
+D:\AndroidAppRomanova\AndroidAppRomanova\AndroidAppRomanova\bin\Debug\net10.0\AndroidAppRomanova.dll
+D:\AndroidAppRomanova\AndroidAppRomanova\AndroidAppRomanova\bin\Debug\net10.0\AndroidAppRomanova.pdb
+D:\AndroidAppRomanova\AndroidAppRomanova\AndroidAppRomanova\obj\Debug\net10.0\AndroidAppRomanova.csproj.AssemblyReference.cache
+D:\AndroidAppRomanova\AndroidAppRomanova\AndroidAppRomanova\obj\Debug\net10.0\Avalonia\Resources.Inputs.cache
+D:\AndroidAppRomanova\AndroidAppRomanova\AndroidAppRomanova\obj\Debug\net10.0\Avalonia\resources
+D:\AndroidAppRomanova\AndroidAppRomanova\AndroidAppRomanova\obj\Debug\net10.0\AndroidAppRomanova.GeneratedMSBuildEditorConfig.editorconfig
+D:\AndroidAppRomanova\AndroidAppRomanova\AndroidAppRomanova\obj\Debug\net10.0\AndroidAppRomanova.AssemblyInfoInputs.cache
+D:\AndroidAppRomanova\AndroidAppRomanova\AndroidAppRomanova\obj\Debug\net10.0\AndroidAppRomanova.AssemblyInfo.cs
+D:\AndroidAppRomanova\AndroidAppRomanova\AndroidAppRomanova\obj\Debug\net10.0\AndroidAppRomanova.csproj.CoreCompileInputs.cache
+D:\AndroidAppRomanova\AndroidAppRomanova\AndroidAppRomanova\obj\Debug\net10.0\AndroidAppRomanova.dll
+D:\AndroidAppRomanova\AndroidAppRomanova\AndroidAppRomanova\obj\Debug\net10.0\refint\AndroidAppRomanova.dll
+D:\AndroidAppRomanova\AndroidAppRomanova\AndroidAppRomanova\obj\Debug\net10.0\AndroidAppRomanova.pdb
+D:\AndroidAppRomanova\AndroidAppRomanova\AndroidAppRomanova\obj\Debug\net10.0\ref\AndroidAppRomanova.dll
+D:\AndroidAppRomanova\AndroidAppRomanova\AndroidAppRomanova\obj\Debug\net10.0\AndroidA.33B6FDBC.Up2Date

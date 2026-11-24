@@ -1,0 +1,91 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodels="using:AndroidAppRomanova.ViewModels"
+             xmlns:vm="using:AndroidAppRomanova.ViewModels"
+             xmlns:views="using:AndroidAppRomanova.Views"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="700"
+             x:Class="AndroidAppRomanova.Views.Calculator"
+             x:DataType="vm:CalculatorViewModel">
+    <Design.DataContext>
+        <vm:CalculatorViewModel />
+    </Design.DataContext>
+
+    <Grid>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="Меню действий">
+                    <MenuItem Header="Вычислить" Command="{Binding CalculateCommand}" />
+                    <MenuItem Header="Очистить" Command="{Binding ClearCommand}" />
+                </MenuItem>
+            </Menu>
+
+            <ScrollViewer>
+                <StackPanel Margin="16" Spacing="14" VerticalAlignment="Center">
+
+                    <TextBlock Text="Вычисление y = a + b + c"
+                               FontSize="20" FontWeight="SemiBold"
+                               HorizontalAlignment="Center" />
+
+                    <Border Padding="12" CornerRadius="8" Background="#18808080">
+                        <StackPanel Spacing="2" HorizontalAlignment="Center">
+                            <TextBlock Text="a = sqrt^3(w − 20) / (1 − (v + b/13))"
+                                       FontFamily="Consolas, monospace" />
+                            <TextBlock Text="b = w / v,   c = 25"
+                                       FontFamily="Consolas, monospace" />
+                        </StackPanel>
+                    </Border>
+
+                    <Border Padding="16" CornerRadius="12"
+                            BorderThickness="1" BorderBrush="#40808080">
+                        <StackPanel Spacing="12">
+                            <UniformGrid Columns="2">
+                                <StackPanel Spacing="4" Margin="0,0,6,0">
+                                    <TextBlock Text="w" FontWeight="SemiBold" />
+                                    <TextBox Text="{Binding WText}" Watermark="Введите w" />
+                                </StackPanel>
+                                <StackPanel Spacing="4" Margin="6,0,0,0">
+                                    <TextBlock Text="v" FontWeight="SemiBold" />
+                                    <TextBox Text="{Binding VText}" Watermark="Введите v" />
+                                </StackPanel>
+                            </UniformGrid>
+
+                            <UniformGrid Columns="2">
+                                <Button Content="Вычислить"
+                                        Classes="accent"
+                                        Command="{Binding CalculateCommand}"
+                                        Height="42" Margin="0,0,6,0"
+                                        HorizontalAlignment="Stretch"
+                                        HorizontalContentAlignment="Center" />
+                                <Button Content="Очистить"
+                                        Command="{Binding ClearCommand}"
+                                        Height="42" Margin="6,0,0,0"
+                                        HorizontalAlignment="Stretch"
+                                        HorizontalContentAlignment="Center" />
+                            </UniformGrid>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Padding="16" CornerRadius="12" Background="#18808080">
+                        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto"
+                              RowSpacing="8" ColumnSpacing="16">
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="a =" />
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding AResult}" />
+
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="b =" />
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding BResult}" />
+
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="y ="
+                                       FontWeight="Bold" FontSize="20" />
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding YResult}"
+                                       FontWeight="Bold" FontSize="20" />
+                        </Grid>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </DockPanel>
+
+        <views:NotifyOverlay />
+    </Grid>
+</UserControl>

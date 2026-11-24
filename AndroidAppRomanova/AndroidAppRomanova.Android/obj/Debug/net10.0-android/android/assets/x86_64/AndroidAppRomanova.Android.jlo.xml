@@ -1,0 +1,15 @@
+<api>
+  <jcw-types>
+    <type name="Application" package="crc648fa99dbcbd467cd1" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="crc6431345fe65afe8d98.AvaloniaAndroidApplication_1" is_application="True" partial_assembly_qualified_name="AndroidAppRomanova.Android.Application, AndroidAppRomanova.Android" application_constructor="Application" />
+    <type name="MainActivity" package="crc648fa99dbcbd467cd1" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="crc6431345fe65afe8d98.AvaloniaMainActivity" partial_assembly_qualified_name="AndroidAppRomanova.Android.MainActivity, AndroidAppRomanova.Android">
+      <constructors>
+        <constructor name="MainActivity" method="n_.ctor:()V:" jni_signature="()V" managed_parameters="" retval="void" is_dynamically_registered="True" />
+        <constructor name="MainActivity" method="n_.ctor:(I)V:" jni_signature="(I)V" managed_parameters="System.Int32, System.Private.CoreLib" params="int p0" retval="void" is_dynamically_registered="True" super_call="p0" activate_call="p0" />
+      </constructors>
+    </type>
+  </jcw-types>
+  <acw-types partial-assembly-name="AndroidAppRomanova.Android" module-name="AndroidAppRomanova.Android.dll">
+    <type assembly-qualified-name="AndroidAppRomanova.Android.Application, AndroidAppRomanova.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="androidappromanova.android.Application" java-key="crc648fa99dbcbd467cd1.Application" managed-key="AndroidAppRomanova.Android.Application" partial-assembly-qualified-name="AndroidAppRomanova.Android.Application, AndroidAppRomanova.Android" />
+    <type assembly-qualified-name="AndroidAppRomanova.Android.MainActivity, AndroidAppRomanova.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="androidappromanova.android.MainActivity" java-key="crc648fa99dbcbd467cd1.MainActivity" managed-key="AndroidAppRomanova.Android.MainActivity" partial-assembly-qualified-name="AndroidAppRomanova.Android.MainActivity, AndroidAppRomanova.Android" />
+  </acw-types>
+</api>

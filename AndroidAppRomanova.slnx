@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="AndroidAppRomanova/AndroidAppRomanova.Android/AndroidAppRomanova.Android.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="AndroidAppRomanova/AndroidAppRomanova/AndroidAppRomanova.csproj" />
+</Solution>
