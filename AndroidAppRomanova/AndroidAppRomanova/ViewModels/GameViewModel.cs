@@ -10,6 +10,8 @@ namespace AndroidAppRomanova.ViewModels;
 public partial class GameViewModel : NotifyViewModelBase
 {
     public ObservableCollection<TileViewModel> Tiles { get; } = new();
+    public int[] BoardSizes { get; } = { 3, 4, 5 };
+
     [ObservableProperty] private int boardSize = 4;
     [ObservableProperty] private int moves;
     [ObservableProperty] private string customLayout = "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 0";
@@ -22,8 +24,13 @@ public partial class GameViewModel : NotifyViewModelBase
 
     partial void OnBoardSizeChanged(int value)
     {
-        if (value is < 3 or > 5) BoardSize = Math.Clamp(value, 3, 5);
-        Columns = BoardSize;
+        if (value is < 3 or > 5)
+        {
+            BoardSize = Math.Clamp(value, 3, 5);
+            return;
+        }
+        Columns = value;
+        CreateRandom();
     }
 
     [RelayCommand]
@@ -31,7 +38,6 @@ public partial class GameViewModel : NotifyViewModelBase
     {
         var values = Enumerable.Range(0, BoardSize * BoardSize).ToArray();
         int empty = values.Length - 1;
-        // Перемешиваем только допустимыми ходами — поле всегда остаётся решаемым.
         for (int i = 0; i < 250; i++)
         {
             var options = Neighbours(empty, BoardSize).ToArray();
@@ -48,7 +54,7 @@ public partial class GameViewModel : NotifyViewModelBase
     [RelayCommand]
     private void ApplyLayout()
     {
-        var parts = (CustomLayout ?? "").Split(new[] { ' ', ',', ';', '\n', '\r', '\t' },
+        var parts = (CustomLayout ?? "").Split(new[] { ' ', ',', ';', '\\n', '\\r', '\\t' },
             StringSplitOptions.RemoveEmptyEntries);
         int count = BoardSize * BoardSize;
         if (parts.Length != count || !parts.All(x => int.TryParse(x, out _)))
@@ -70,6 +76,7 @@ public partial class GameViewModel : NotifyViewModelBase
         SetBoard(values);
         Moves = 0;
         _lastMoved = -1;
+        RefreshColors();
     }
 
     [RelayCommand]
@@ -135,9 +142,8 @@ public partial class GameViewModel : NotifyViewModelBase
             for (int j = i + 1; j < values.Length; j++)
                 if (values[i] != 0 && values[j] != 0 && values[i] > values[j]) inversions++;
         if (size % 2 == 1) return inversions % 2 == 0;
-        int rowFromBottom = size - (_emptyIndexStatic(values, size) / size);
+        int emptyIndex = Array.IndexOf(values, 0);
+        int rowFromBottom = size - emptyIndex / size;
         return (inversions + rowFromBottom) % 2 == 1;
     }
-
-    private static int _emptyIndexStatic(int[] values, int size) => Array.IndexOf(values, 0);
 }

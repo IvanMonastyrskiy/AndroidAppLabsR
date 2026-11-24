@@ -9,11 +9,7 @@
             <TextBlock Text="Пятнашки" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center"/>
             <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
                 <TextBlock Text="Размер:" VerticalAlignment="Center"/>
-                <ComboBox Width="90" SelectedItem="{Binding BoardSize}">
-                    <ComboBoxItem Content="3"/>
-                    <ComboBoxItem Content="4"/>
-                    <ComboBoxItem Content="5"/>
-                </ComboBox>
+                <ComboBox Width="90" ItemsSource="{Binding BoardSizes}" SelectedItem="{Binding BoardSize}"/>
                 <Button Content="Случайная" Command="{Binding CreateRandomCommand}"/>
                 <Button Content="Сбросить" Command="{Binding ClearCommand}"/>
             </StackPanel>

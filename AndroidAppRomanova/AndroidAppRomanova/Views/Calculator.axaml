@@ -21,20 +21,20 @@
                 <Border Padding="14" CornerRadius="10" BorderThickness="1" BorderBrush="#66808080">
                     <StackPanel Spacing="10">
                         <TextBlock Text="Входные данные" FontWeight="SemiBold" Foreground="{Binding PageForeground}"/>
-                        <StackPanel Orientation="Horizontal" Spacing="8">
-                            <StackPanel Spacing="4" Width="*" >
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                            <StackPanel Grid.Column="0" Spacing="4">
                                 <TextBlock Text="w" Foreground="{Binding PageForeground}"/>
                                 <TextBox Text="{Binding WText}" Watermark="Введите w"/>
                             </StackPanel>
-                            <StackPanel Spacing="4" Width="*">
+                            <StackPanel Grid.Column="1" Spacing="4">
                                 <TextBlock Text="v" Foreground="{Binding PageForeground}"/>
                                 <TextBox Text="{Binding VText}" Watermark="Введите v"/>
                             </StackPanel>
-                        </StackPanel>
+                        </Grid>
                         <StackPanel Orientation="Horizontal" Spacing="8">
-                            <Button Content="Вычислить" Command="{Binding CalculateCommand}" Classes="accent" HorizontalAlignment="Stretch"/>
-                            <Button Content="Очистить" Command="{Binding ClearCommand}" HorizontalAlignment="Stretch"/>
-                            <Button Content="Настройки" Command="{Binding OpenSettingsCommand}" HorizontalAlignment="Stretch"/>
+                            <Button Content="Вычислить" Command="{Binding CalculateCommand}" Classes="accent"/>
+                            <Button Content="Очистить" Command="{Binding ClearCommand}"/>
+                            <Button Content="Настройки" Command="{Binding OpenSettingsCommand}"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>
